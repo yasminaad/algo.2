@@ -1,0 +1,85 @@
+//solution 1
+ALGORITHM algorithm_checkpt
+VAR
+   tab1:ARRAY_OF INTEGER[a];
+   tab2:ARRAY_OF INTEGER[b];
+   i:INTEGER;
+   j,sum:INTEGER;
+
+   sum:INTEGER:=0;
+BEGIN
+  FOR i FROM 0 TO a-1 STEP 1 DO
+    IF (tab1[i]<>tab2[j]) THEN
+        sum:=sum+tab1[i]
+    END_IF
+  END_FOR
+   FOR j FROM 0 TO b-1 STEP 1 DO
+    IF (tab2[j]<>tab1[i]) THEN
+        sum:=sum+tab2[j]
+    END_IF
+  END_FOR
+  read (sum)
+
+END
+//soltuion 2.1:
+ ALGORITHM algo2
+ VAR
+   tab1:ARRAY_OF INTEGER[a];
+   tab2:ARRAY_OF INTEGER[b];
+   htab:HASH_TABLE<INTEGER,INTEGER>;
+   count:INTEGER:=1;
+   i,J,a,b,el:INTEGER;
+   sum:INTEGER:=0;
+BEGIN
+  for i FROM 0 to a-1 step 1 DO
+       htab.insert(tab1[i],1);
+  END_FOR
+  for j FROM 0 to a-1 step 1 DO
+       if(tab1[i]lookup tab2.[j]=true)THEN
+       htab.get(tab1[i],2)
+       END_IF
+  END_FOR
+  
+  for j FROM 0 to a-1 step 1 DO
+    IF (htab.lookup(tab1[i])=1) 
+       
+       sum:=sum+tab1[i]
+    END_IF
+    END_FOR
+    for J FROM 0 to b-1 step 1 DO
+       if(htab.lookup(tab2[J]))
+       END_IF
+       END_FOR
+ Read (sum)
+END
+//soltuion2.2
+ALGORITHM algo2
+ VAR
+   tab1:ARRAY_OF INTEGER[a];
+   tab2:ARRAY_OF INTEGER[b];
+   tab3:ARRAY_OF INTEGER[c];
+   htab:HASH_TABLE<INTEGER,INTEGER>;
+   count:INTEGER:=1;
+   i,J,a,b,el:INTEGER;
+   sum_c,sum_diff:INTEGER:=0;
+  
+BEGIN
+ tab3=tab1+tab2;
+  for i FROM 0 to c step 1 DO
+      if htab.lookup(tab3[i]);
+       htab.insert(tab3[i],htab.get(tab3[i]+1))
+       else 
+       htab.insert(tab3[i],1)
+       END_IF
+  END_FOR
+  for i FROM 0 to c step 1 DO
+   read(tab3)
+   IF (el[1]===1)
+   sum_diff+=el[0]
+   else 
+   sum_c+=el[0]
+   END_IF
+  END_FOR
+   write (sum_c)
+   write(sum_diff)
+   END
